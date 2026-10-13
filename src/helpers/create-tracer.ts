@@ -4,7 +4,7 @@
  * si queremos comprender el razonamiento y pasos del modelo, nos ayudará
  */
 
-import type { GenerateTextStepEndEvent } from 'ai';
+import type { GenerateTextStepEndEvent } from "ai";
 
 export function createTracer(label: string) {
   let step = 0;
@@ -28,18 +28,18 @@ export function createTracer(label: string) {
 
         for (const call of toolCalls) {
           console.log(
-            `  │  ${'TOOL'.yellow}  → ${call.toolName.blue}(${JSON.stringify(call.input)})`,
+            `  │  ${"TOOL".yellow}  → ${call.toolName.blue}(${JSON.stringify(call.input)})`,
           );
         }
 
         for (const result of toolResults) {
           console.log(
-            `  │  ${'RESULT'.green}← ${JSON.stringify(result.output).slice(0, 150)}`,
+            `  │  ${"RESULT".green}← ${JSON.stringify(result.output).slice(0, 150)}`,
           );
         }
 
         if (text.trim()) {
-          console.log(`  │  ${'TEXT'.purple}  → ${text.trim().slice(0, 150)}`);
+          console.log(`  │  ${"TEXT".purple}  → ${text.trim().slice(0, 150)}`);
         }
 
         console.log(`  └─`);
